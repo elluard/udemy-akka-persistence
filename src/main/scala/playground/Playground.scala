@@ -2,6 +2,7 @@ package playground
 
 import akka.actor.{ActorLogging, ActorSystem, Props}
 import akka.persistence.PersistentActor
+import com.typesafe.config.ConfigFactory
 
 object Playground extends App {
 
@@ -20,7 +21,7 @@ object Playground extends App {
     }
   }
 
-  val system = ActorSystem("Playground")
+  val system = ActorSystem("PersistentActors")
   val simpleActor = system.actorOf(Props[SimplePersistentActor], "simplePersistentActor")
   simpleActor ! "I love Akka!"
 
